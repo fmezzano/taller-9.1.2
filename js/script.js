@@ -35,8 +35,14 @@ function showList(array) {
     container.appendChild(li);
   });
 }
+//en esta funcion filtro los que del strangeArray son strings y los tengo alfabeticamente, luego defino la funcion para pasar como paramentro a sort para que ordene los string como si estuvieran todos en mayuscula segun ASCII
+const soloStrings = strangeArray.filter(item => typeof item ==='string').sort((word1,word2)=>{
+  const lower1 = word1.toUpperCase();
+  const lower2 = word2.toUpperCase();
+  return lower1.localeCompare(lower2);
+});
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  // Escribe tu solución aquí
-  // Sugerencia de cómo mostrar el array => showList(strangeArray);
+  showList(soloStrings)
+  
 });
